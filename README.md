@@ -15,6 +15,8 @@ Rather than overwhelming users with countless features, FLOW focuses on one goal
 ## Live URL:
 https://flowfo.netlify.app/
 
+---
+
 ## ✨ Features
 
 ### 🎯 Daily Intention Tracker
