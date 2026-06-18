@@ -1,4 +1,4 @@
-<img width="1080" height="2400" alt="WhatsApp Image 2026-06-18 at 23 28 55" src="https://github.com/user-attachments/assets/1f99a88b-e440-4091-8af8-2af4a87f4f01" /> <img width="1585" height="719" alt="WhatsApp Image 2026-06-18 at 23 28 55 (1)" src="https://github.com/user-attachments/assets/50b531eb-217c-4a00-8f6a-a3cedbc49338" />
+<img width="1585" height="719" alt="WhatsApp Image 2026-06-18 at 23 28 55 (1)" src="https://github.com/user-attachments/assets/50b531eb-217c-4a00-8f6a-a3cedbc49338" />
 
 
 # 🌊 FLOW
