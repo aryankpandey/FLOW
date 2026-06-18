@@ -1,61 +1,132 @@
-# 🎧 Focus Space
+# 🌊 FLOW
 
+> A minimalist productivity dashboard designed for deep work, intentional focus, and sustainable consistency.
 
-> **Enter deep work. Stay focused. Build momentum.**
+FLOW helps users enter a state of focused productivity through structured work sessions, ambient soundscapes, daily intentions, and streak-based habit building.
 
-`focus-space` is a minimalist productivity dashboard designed to help users achieve a state of deep focus through structured work sessions, immersive ambient audio, and intentional daily planning. By combining a customizable Pomodoro timer, layered ambient soundscapes, and a lightweight intention tracker, it creates a distraction-free environment where productivity feels natural and sustainable.
+Rather than overwhelming users with countless features, FLOW focuses on one goal:
 
----
-
-## 🚀 Live Demo
-
-🌐 **Deployment URL:** [https://focus-space.netlify.app](https://focus-space.netlify.app)
-
----
-
-## 📸 Preview
-
-![focus-space Preview](assets/preview.png)
+**Help you do meaningful work, consistently.**
 
 ---
 
 ## ✨ Features
 
-### ⏳ Customizable Pomodoro Canvas
-Stay productive using a smooth circular countdown timer inspired by the Pomodoro Technique.
-- **Tailored Sessions:** Adjustable work, short break, and long break intervals.
-- **Visual Progress:** Dynamic visual countdown indicator.
-- **Alerts:** Native session completion notifications.
+### 🎯 Daily Intention Tracker
 
-### 🎵 Ambient Soundboard Mixer
-Create your ideal focus environment by mixing multiple ambient sounds simultaneously.
-- **Soundscapes:** 🌧️ Rain, ☕ Cafe Ambience, and 🎼 Lo-Fi Music.
-- **Granular Control:** Independent volume tracks for real-time audio mixing.
-- **Persistence:** Global playback state management.
+Start each day with a clear purpose.
 
-### 📝 Daily Intentions Grid
-Plan your day with a clean, distraction-free, Bento-grid inspired intentions board.
-- **Task Management:** Quick add, complete, and instant deletion workflow.
-- **Local Persistence:** Data automatically syncs and persists via Browser `localStorage`.
-
-### 💡 Zen Quotes Integration
-Receive motivational and reflective quotes throughout your focus sessions.
-- **Dynamic Delivery:** Lightweight integration powered by the **ZenQuotes API**.
+* Set your primary goal for the day
+* Edit anytime
+* Automatically saved using LocalStorage
+* Visible throughout your session
 
 ---
 
-## 🛠️ Tech Stack
+### ⏱️ Deep Focus Timer
 
-![HTML5](https://img.shields.io/badge/-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white) ![CSS3](https://img.shields.io/badge/-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white) ![JavaScript](https://img.shields.io/badge/-%23F7DF1E.svg?style=for-the-badge&logo=javascript&logoColor=black) ![Netlify](https://img.shields.io/badge/-%2300C7B7.svg?style=for-the-badge&logo=netlify&logoColor=white) ![GitHub Actions](https://img.shields.io/badge/-%232088FF.svg?style=for-the-badge&logo=github-actions&logoColor=white)
+A distraction-free Pomodoro timer built for concentration.
+
+#### Focus Modes
+
+* 25 Minutes
+* 50 Minutes
+* Custom Duration
+
+#### Break Modes
+
+* 5 Minutes
+* 10 Minutes
+* 15 Minutes
+
+Features:
+
+* Start
+* Pause
+* Resume
+* Reset
+* Circular Progress Indicator
+* Completion Notifications
 
 ---
 
-## 📂 Project Structure
+### 🔥 Streak System
 
-```text
-focus-space/
+Build consistency one day at a time.
+
+FLOW tracks consecutive days where at least one focus session is completed.
+
+Milestones:
+
+* 7 Days
+* 14 Days
+* 30 Days
+* 50 Days
+* 100 Days
+
+All streak data is stored locally.
+
+---
+
+### 🎵 Ambient Soundboard
+
+Create your ideal focus environment.
+
+Available soundscapes:
+
+* Rain
+* Thunder
+* Forest
+* Ocean Waves
+* Coffee Shop
+* White Noise
+
+Features:
+
+* Individual volume controls
+* Multi-sound mixing
+* Play/Pause controls
+* Smooth audio transitions
+
+---
+
+### 💡 Daily Motivation
+
+Stay inspired with rotating productivity quotes.
+
+Examples:
+
+> "Small progress compounds into remarkable results."
+
+> "Focus is a superpower in a distracted world."
+
+> "Discipline is choosing what you want most over what you want now."
+
+---
+
+### 📊 Session Analytics
+
+Track your progress over time.
+
+Metrics include:
+
+* Total Focus Sessions
+* Focus Hours
+* Current Streak
+* Longest Streak
+* Today's Sessions
+
+All statistics are stored locally in your browser.
+
+---
+
+## 🗂️ Project Structure
+
+```plaintext
+FLOW/
 │
 ├── index.html
+│
 ├── css/
 │   └── style.css
 │
@@ -71,48 +142,125 @@ focus-space/
 │   └── icons/
 │
 └── README.md
-
 ```
 
-## ⚙️ Installation & Local Development
- 1. Clone the repository:
-git clone [https://github.com/aryankpandey/focus-space.git](https://github.com/aryankpandey/focus-space.git)
+---
 
-2. Navigate to the project folder:
-cd focus-space
+## 🎨 Design Philosophy
 
-3. Run Locally:
-​Option 1: Open index.html directly in your browser.
-​Option 2: Serve it via a local development server like VS Code Live Server for an optimal workflow.
+FLOW follows a simple principle:
 
-## 🎯 How It Works
-​Configure: Set your preferred Pomodoro durations on the dashboard.
-​Focus: Start a work interval session.
-​Immerse: Mix soundscape tracks simultaneously to tune out peripheral noise.
-​Plan: Brainstorm and map out your tasks into the Daily Intentions grid.
-​Reflect: Absorb the minimalist Zen quotes generated during intervals to reset.
+> Remove everything that distracts from doing the work.
 
-## ​🌟 Future Roadmap
-​[ ] Dark / Light adaptive theme switching
-​[ ] Comprehensive statistics & focus analytics dashboard
-​[ ] Focus streak tracking metrics
-​[ ] Spotify API audio streaming support
-​[ ] Custom ambient sound file uploads
-​[ ] Progressive Web App (PWA) support for offline capabilities
+Design goals:
 
+* Minimalist
+* Fast
+* Focus-first
+* Beautiful without being flashy
+* Calm and distraction-free
 
-## ​🤝 Contributing
-​Contributions make the open-source community an amazing place to learn, inspire, and create. Any contributions you make are greatly appreciated.
-​Fork the Project
-​Create your Feature Branch (git checkout -b feature/AmazingFeature)
-​Commit your Changes (git commit -m 'Add some AmazingFeature')
-​Push to the Branch (git push origin feature/AmazingFeature)
-​Open a Pull Request
+Inspired by:
 
-## ​📜 License
-​Distributed under the MIT License. See LICENSE for more details.
+* Linear
+* Raycast
+* Notion
+* Headspace
+* Apple Design Principles
 
-## ​🙌 Acknowledgements
-​ZenQuotes API
-​The Pomodoro Technique®
-​Built for creators, developers, students, and deep thinkers.
+---
+
+## 🌙 Theme
+
+### Colors
+
+| Element    | Color   |
+| ---------- | ------- |
+| Background | #0F1117 |
+| Cards      | #181C24 |
+| Accent     | #5B8CFF |
+| Success    | #22C55E |
+| Warning    | #F59E0B |
+| Danger     | #EF4444 |
+| Text       | #F8FAFC |
+| Muted Text | #94A3B8 |
+
+---
+
+## 🚀 Getting Started
+
+### Clone the Repository
+
+```bash
+git clone https://github.com/aryankpandey/FLOW.git
+```
+
+### Open the Project
+
+Simply open:
+
+```plaintext
+index.html
+```
+
+in your browser.
+
+No installation required.
+
+No frameworks required.
+
+No build process required.
+
+---
+
+## 💾 Data Storage
+
+FLOW uses browser LocalStorage to save:
+
+* Daily Intentions
+* Focus Sessions
+* Streaks
+* Statistics
+* User Preferences
+
+No account required.
+
+No cloud storage required.
+
+Your data stays on your device.
+
+---
+
+## 🔮 Future Roadmap
+
+Planned enhancements:
+
+* Fullscreen Focus Mode
+* Achievement Badges
+* Focus Heatmap
+* Theme Customization
+* Keyboard Shortcuts
+* Session History
+* Productivity Insights
+* Focus Music Presets
+* Export Statistics
+
+---
+
+## 🎯 Mission
+
+FLOW exists to help people:
+
+* Focus deeply
+* Work intentionally
+* Build consistency
+* Reduce distractions
+* Create sustainable productivity habits
+
+Because productivity is not about doing more.
+
+It's about consistently doing what matters.
+
+---
+
+Built with ❤️ for people who want to focus.
