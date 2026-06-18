@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>FLOW - Deep Work Dashboard</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Geist:wght@400;600&display=swap" rel="stylesheet"/>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-bright": "#373940",
+                        "primary-container": "#5b8cff",
+                        "on-surface": "#e2e2eb",
+                        "surface-container-lowest": "#0c0e14",
+                        "on-tertiary-container": "#412200",
+                        "surface-variant": "#33343b",
+                        "inverse-surface": "#e2e2eb",
+                        "on-secondary-fixed-variant": "#434750",
+                        "error": "#ffb4ab",
+                        "surface-tint": "#b2c5ff",
+                        "on-tertiary-fixed-variant": "#6a3b00",
+                        "inverse-on-surface": "#2e3037",
+                        "surface": "#111319",
+                        "on-primary": "#002c72",
+                        "on-surface-variant": "#c3c6d6",
+                        "secondary-fixed": "#dfe2ed",
+                        "secondary": "#c3c6d1",
+                        "on-secondary-container": "#b5b8c3",
+                        "surface-container-high": "#282a30",
+                        "tertiary-fixed-dim": "#ffb874",
+                        "primary-fixed": "#dae2ff",
+                        "secondary-fixed-dim": "#c3c6d1",
+                        "on-tertiary-fixed": "#2d1600",
+                        "tertiary": "#ffb874",
+                        "on-primary-fixed-variant": "#0040a0",
+                        "on-primary-fixed": "#001847",
+                        "tertiary-container": "#d47b00",
+                        "surface-container-low": "#191b22",
+                        "primary": "#b2c5ff",
+                        "error-container": "#93000a",
+                        "on-tertiary": "#4b2800",
+                        "secondary-container": "#454952",
+                        "surface-container": "#1e1f26",
+                        "tertiary-fixed": "#ffdcbf",
+                        "on-secondary-fixed": "#181c24",
+                        "on-background": "#e2e2eb",
+                        "inverse-primary": "#1857c8",
+                        "outline": "#8d909f",
+                        "on-primary-container": "#002665",
+                        "outline-variant": "#434653",
+                        "on-error-container": "#ffdad6",
+                        "background": "#111319",
+                        "on-secondary": "#2c3039",
+                        "on-error": "#690005",
+                        "primary-fixed-dim": "#b2c5ff",
+                        "surface-container-highest": "#33343b",
+                        "surface-dim": "#111319"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "gutter": "24px",
+                        "stack-sm": "8px",
+                        "unit": "4px",
+                        "stack-lg": "32px",
+                        "stack-md": "16px",
+                        "margin-mobile": "16px",
+                        "stack-xs": "4px",
+                        "container-max": "1200px"
+                    },
+                    "fontFamily": {
+                        "body-lg": ["Inter"],
+                        "body-sm": ["Inter"],
+                        "display-lg-mobile": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "display-lg": ["Inter"],
+                        "label-caps": ["Geist"],
+                        "mono-timer": ["Geist"]
+                    },
+                    "fontSize": {
+                        "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "display-lg-mobile": ["32px", { "lineHeight": "1.2", "fontWeight": "600" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "500" }],
+                        "display-lg": ["48px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+                        "label-caps": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                        "mono-timer": ["64px", { "lineHeight": "1", "letterSpacing": "-0.04em", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="flex h-screen overflow-hidden text-on-background font-body-lg">
+
+    <aside class="hidden md:flex flex-col h-full py-stack-lg fixed left-0 top-0 w-[240px] bg-surface-container-low/60 backdrop-blur-xl border-r border-outline-variant/30 z-20">
+        <div class="px-gutter mb-stack-lg">
+            <h1 class="font-headline-md text-headline-md text-on-surface font-bold tracking-tight">FLOW</h1>
+            <p class="font-body-sm text-body-sm text-on-surface-variant mt-stack-xs">Deep Work Mode</p>
+        </div>
+        <nav class="flex-1 px-stack-sm flex flex-col gap-unit">
+            <button data-target="timer-section" class="nav-link flex w-full items-center gap-stack-sm px-stack-sm py-stack-sm rounded hover:bg-surface-variant/70 transition-all text-primary font-bold border-r-2 border-primary bg-surface-variant/40">
+                <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">timer</span>
+                <span class="font-body-sm text-body-sm">Timer</span>
+            </button>
+            <button data-target="soundboard-section" class="nav-link flex w-full items-center gap-stack-sm px-stack-sm py-stack-sm rounded hover:bg-surface-variant/70 transition-all text-on-surface-variant">
+                <span class="material-symbols-outlined">graphic_eq</span>
+                <span class="font-body-sm text-body-sm">Soundboard</span>
+            </button>
+            <button data-target="analytics-section" class="nav-link flex w-full items-center gap-stack-sm px-stack-sm py-stack-sm rounded hover:bg-surface-variant/70 transition-all text-on-surface-variant">
+                <span class="material-symbols-outlined">equalizer</span>
+                <span class="font-body-sm text-body-sm">Analytics</span>
+            </button>
+        </nav>
+        
+        <div class="px-gutter mt-stack-md mb-stack-lg">
+            <p class="font-label-caps text-label-caps text-on-surface-variant mb-stack-sm uppercase tracking-widest">Wallpaper</p>
+            <div class="flex gap-stack-sm">
+                <button class="wallpaper-btn w-12 h-12 rounded-lg border-2 border-primary overflow-hidden shrink-0 transition-colors" data-bg="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=1000">
+                    <img alt="Mountains" class="w-full h-full object-cover" src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=120"/>
+                </button>
+                <button class="wallpaper-btn w-12 h-12 rounded-lg border-2 border-transparent hover:border-outline-variant transition-colors overflow-hidden shrink-0" data-bg="https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?q=80&w=1000">
+                    <img alt="Ferns" class="w-full h-full object-cover" src="https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?q=80&w=120"/>
+                </button>
+                <button class="wallpaper-btn w-12 h-12 rounded-lg border-2 border-transparent hover:border-outline-variant transition-colors overflow-hidden shrink-0" data-bg="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=1000">
+                    <img alt="Ocean" class="w-full h-full object-cover" src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=120"/>
+                </button>
+            </div>
+        </div>
+    </aside>
+
+    <main class="flex-1 flex flex-col md:ml-[240px] h-full overflow-y-auto relative mb-16 md:mb-0">
+        <header class="flex justify-between items-center w-full px-gutter py-4 bg-surface/60 backdrop-blur-xl border-b border-outline-variant/30 top-0 sticky z-10">
+            <div class="md:hidden">
+                <h1 class="font-headline-md text-headline-md font-bold tracking-tight text-on-surface">FLOW</h1>
+            </div>
+            <div class="hidden md:block"></div>
+            <div class="flex items-center gap-stack-md">
+                <div class="flex items-center gap-1 text-tertiary">
+                    <span class="material-symbols-outlined">local_fire_department</span>
+                    <span id="streak-badge-count" class="font-bold">0</span> Days
+                </div>
+            </div>
+        </header>
+
+        <div class="flex-1 flex flex-col max-w-[1200px] w-full mx-auto px-margin-mobile md:px-gutter py-stack-lg gap-stack-lg relative justify-between">
+            
+            <section class="w-full max-w-2xl mx-auto text-center mt-stack-md">
+                <label class="sr-only" for="intention">Daily Intention</label>
+                <input class="w-full bg-transparent border-none border-b border-transparent focus:border-primary focus:ring-0 text-center font-headline-md text-headline-md text-on-surface placeholder:text-on-surface-variant/50 transition-colors duration-300 pb-stack-sm px-4 outline-none" id="intention" placeholder="What are you focusing on today?" type="text"/>
+            </section>
+
+            <div id="content-modules" class="w-full flex-1 flex flex-col items-center justify-center my-stack-md">
+                
+                <div id="timer-section" class="view-module flex flex-col items-center w-full">
+                    <div class="relative w-[320px] h-[320px] flex items-center justify-center rounded-full glow-active bg-surface-container-high/60 backdrop-blur-xl border border-outline-variant/30 shadow-2xl">
+                        <svg class="absolute inset-0 w-full h-full -rotate-90 pointer-events-none" viewbox="0 0 320 320">
+                            <circle class="text-surface-variant/50" cx="160" cy="160" fill="none" r="140" stroke="currentColor" stroke-width="4"></circle>
+                            <circle id="progress-bar" class="text-primary timer-circle" cx="160" cy="160" fill="none" r="140" stroke="currentColor" stroke-linecap="round" stroke-width="4"></circle>
+                        </svg>
+                        <div class="flex flex-col items-center z-10 drop-shadow-md">
+                            <div id="timer-display" class="font-mono-timer text-mono-timer text-on-surface tracking-tighter">25:00</div>
+                            <div id="timer-mode-label" class="font-label-caps text-label-caps text-on-surface-variant mt-stack-xs uppercase tracking-widest">Focus Session</div>
+                        </div>
+                    </div>
+
+                    <div class="mt-stack-lg flex flex-col items-center gap-stack-md">
+                        <div class="flex gap-stack-sm backdrop-blur-md bg-surface/30 p-1 rounded-full border border-outline-variant/30">
+                            <button class="preset-btn px-4 py-2 rounded-full text-on-surface-variant font-body-sm text-body-sm transition-colors" data-duration="25" data-type="focus">25m</button>
+                            <button class="preset-btn px-4 py-2 rounded-full text-on-surface-variant font-body-sm text-body-sm transition-colors" data-duration="50" data-type="focus">50m</button>
+                            <button class="preset-btn px-4 py-2 rounded-full text-on-surface-variant font-body-sm text-body-sm transition-colors" data-duration="5" data-type="break">5m Break</button>
+                            <button id="custom-timer-btn" class="px-4 py-2 rounded-full text-on-surface-variant font-body-sm text-body-sm transition-colors">Custom</button>
+                        </div>
+                        <div class="flex gap-3">
+                            <button id="start-btn" class="bg-primary text-on-primary-fixed px-8 py-3 rounded-lg font-body-lg font-semibold hover:bg-primary-fixed-dim transition-all shadow-lg flex items-center gap-2">
+                                <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+                                <span id="start-btn-text">Start Flow</span>
+                            </button>
+                            <button id="reset-btn" class="bg-surface-variant/80 text-on-surface px-4 py-3 rounded-lg hover:bg-surface-variant transition-all flex items-center">
+                                <span class="material-symbols-outlined">refresh</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="soundboard-section" class="view-module hidden w-full max-w-xl bg-surface-container/60 backdrop-blur-xl p-6 rounded-xl border border-outline-variant/30 shadow-xl">
+                    <h2 class="text-headline-md font-bold mb-4 flex items-center gap-2 text-on-surface">
+                        <span class="material-symbols-outlined text-primary">graphic_eq</span> Ambient Soundscapes
+                    </h2>
+                    <div id="sound-mixers-container" class="space-y-4">
+                        </div>
+                </div>
+
+                <div id="analytics-section" class="view-module hidden w-full max-w-xl bg-surface-container/60 backdrop-blur-xl p-6 rounded-xl border border-outline-variant/30 shadow-xl">
+                    <h2 class="text-headline-md font-bold mb-6 flex items-center gap-2 text-on-surface">
+                        <span class="material-symbols-outlined text-primary">equalizer</span> Session Analytics
+                    </h2>
+                    <div class="grid grid-cols-2 gap-4 mb-6">
+                        <div class="bg-surface-variant/40 p-4 rounded-lg border border-outline-variant/20">
+                            <p class="text-xs font-label-caps text-on-surface-variant uppercase tracking-wider">Total Sessions</p>
+                            <p id="stat-total-sessions" class="text-3xl font-bold mt-1 text-primary">0</p>
+                        </div>
+                        <div class="bg-surface-variant/40 p-4 rounded-lg border border-outline-variant/20">
+                            <p class="text-xs font-label-caps text-on-surface-variant uppercase tracking-wider">Focus Hours</p>
+                            <p id="stat-focus-hours" class="text-3xl font-bold mt-1 text-primary">0.0</p>
+                        </div>
+                        <div class="bg-surface-variant/40 p-4 rounded-lg border border-outline-variant/20">
+                            <p class="text-xs font-label-caps text-on-surface-variant uppercase tracking-wider">Current Streak</p>
+                            <p id="stat-current-streak" class="text-3xl font-bold mt-1 text-tertiary">0 Days</p>
+                        </div>
+                        <div class="bg-surface-variant/40 p-4 rounded-lg border border-outline-variant/20">
+                            <p class="text-xs font-label-caps text-on-surface-variant uppercase tracking-wider">Longest Streak</p>
+                            <p id="stat-longest-streak" class="text-3xl font-bold mt-1 text-on-surface">0 Days</p>
+                        </div>
+                    </div>
+                    <div class="p-3 bg-surface-container-low rounded border border-outline-variant/20 text-center">
+                        <span class="text-sm text-on-surface-variant">Today's Focus Sessions: </span>
+                        <span id="stat-today-sessions" class="font-bold text-primary">0</span>
+                    </div>
+                </div>
+
+            </div>
+
+            <section class="mt-auto pb-stack-lg text-center">
+                <blockquote id="quote-display" class="font-body-lg text-body-lg text-on-surface-variant italic opacity-90 max-w-lg mx-auto drop-shadow-md">
+                    "Focus is a superpower in a distracted world."
+                </blockquote>
+            </section>
+        </div>
+
+        <footer class="flex justify-center items-center py-stack-md gap-stack-md w-full bg-surface/40 backdrop-blur-md text-on-surface-variant font-body-sm text-body-sm mt-auto border-t border-outline-variant/30">
+            <span>Stay focused. Stay in FLOW.</span>
+            <span class="text-surface-variant">|</span>
+            <a class="hover:text-primary transition-colors" href="#">Privacy</a>
+            <a class="hover:text-primary transition-colors" href="#">Terms</a>
+            <a class="hover:text-primary transition-colors" href="#">Support</a>
+        </footer>
+    </main>
+
+    <nav class="md:hidden flex justify-around items-center w-full bg-surface-container-low/60 backdrop-blur-xl border-t border-outline-variant/30 py-stack-sm fixed bottom-0 left-0 z-20">
+        <button data-target="timer-section" class="nav-link mobile p-2 text-primary">
+            <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">timer</span>
+        </button>
+        <button data-target="soundboard-section" class="nav-link mobile p-2 text-on-surface-variant">
+            <span class="material-symbols-outlined">graphic_eq</span>
+        </button>
+        <button data-target="analytics-section" class="nav-link mobile p-2 text-on-surface-variant">
+            <span class="material-symbols-outlined">equalizer</span>
+        </button>
+    </nav>
+
+    <script src="js/quotes.js"></script>
+    <script src="js/intentions.js"></script>
+    <script src="js/soundboard.js"></script>
+    <script src="js/timer.js"></script>
+    <script>
+        // Module Toggling / Global Nav Management Logic
+        const navLinks = document.querySelectorAll('.nav-link');
+        const views = document.querySelectorAll('.view-module');
+
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                const target = link.getAttribute('data-target');
+                
+                views.forEach(view => view.classList.add('hidden'));
+                document.getElementById(target).classList.remove('hidden');
+
+                navLinks.forEach(l => {
+                    l.classList.remove('text-primary', 'font-bold', 'border-r-2', 'border-primary', 'bg-surface-variant/40');
+                    l.classList.add('text-on-surface-variant');
+                });
+
+                const relatedLinks = document.querySelectorAll(`[data-target="${target}"]`);
+                relatedLinks.forEach(rl => {
+                    rl.classList.add('text-primary');
+                    if(!rl.classList.contains('mobile')) {
+                        rl.classList.add('font-bold', 'border-r-2', 'border-primary', 'bg-surface-variant/40');
+                    }
+                });
+            });
+        });
+
+        // Background / Wallpaper Customizer Engine
+        const wallpaperButtons = document.querySelectorAll('.wallpaper-btn');
+        wallpaperButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const imageUrl = btn.getAttribute('data-bg');
+                document.body.style.backgroundImage = `linear-gradient(rgba(17, 19, 25, 0.75), rgba(17, 19, 25, 0.75)), url('${imageUrl}')`;
+                wallpaperButtons.forEach(b => b.classList.remove('border-primary'));
+                btn.classList.add('border-primary');
+                localStorage.setItem('flow-wallpaper', imageUrl);
+            });
+        });
+
+        // Init Saved Wallpaper configuration
+        const savedBg = localStorage.getItem('flow-wallpaper');
+        if (savedBg) {
+            document.body.style.backgroundImage = `linear-gradient(rgba(17, 19, 25, 0.75), rgba(17, 19, 25, 0.75)), url('${savedBg}')`;
+            wallpaperButtons.forEach(b => {
+                if(b.getAttribute('data-bg') === savedBg) b.classList.add('border-primary');
+                else b.classList.remove('border-primary');
+            });
+        }
+    </script>
+</body>
+</html>
