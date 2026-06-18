@@ -101,7 +101,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 </div>
                 <div class="flex items-center gap-4 flex-1 max-w-[240px] ml-4">
                     <input type="range" min="0" max="1" step="0.05" value="0.3" class="volume-slider w-full" data-id="${sound.id}">
-                    <button class="sound-toggle-btn p-1 text-on-surface-variant hover:text-primary transition-colors" data-id="${sound.id}" data-type="${sound.type}">
+                    <button class="sound-toggle-btn p-1 text-on-surface-variant hover:text-primary transition-colors" data-id="${sound.id}" data-file="${sound.file}">
                         <span class="material-symbols-outlined">play_arrow</span>
                     </button>
                 </div>
@@ -114,11 +114,11 @@ document.addEventListener('DOMContentLoaded', () => {
             const btn = e.target.closest('.sound-toggle-btn');
             if (btn) {
                 const id = btn.getAttribute('data-id');
-                const type = btn.getAttribute('data-type');
+                const file = btn.getAttribute('data-file');
                 const iconSpan = btn.querySelector('.material-symbols-outlined');
 
                 if (iconSpan.innerText === 'play_arrow') {
-                    engine.playSound(id, soundsConfig.find(s => s.id === id).file);
+                    engine.playSound(id, engine.playSound(id, file));
                     iconSpan.innerText = 'pause';
                     btn.classList.add('text-primary');
                     // Sync up existing slider adjustments
