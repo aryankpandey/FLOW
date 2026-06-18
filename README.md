@@ -1,3 +1,6 @@
+<img width="1585" height="719" alt="WhatsApp Image 2026-06-18 at 23 28 55 (1)" src="https://github.com/user-attachments/assets/50b531eb-217c-4a00-8f6a-a3cedbc49338" />
+
+
 # 🌊 FLOW
 
 > A minimalist productivity dashboard designed for deep work, intentional focus, and sustainable consistency.
@@ -7,6 +10,10 @@ FLOW helps users enter a state of focused productivity through structured work s
 Rather than overwhelming users with countless features, FLOW focuses on one goal:
 
 **Help you do meaningful work, consistently.**
+
+---
+## Live URL:
+https://flowfo.netlify.app/
 
 ---
 
