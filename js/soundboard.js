@@ -2,94 +2,88 @@
 class SoundscapeEngine {
     constructor() {
         this.ctx = null;
-        this.nodes = {};
+        this.players = {};
         this.soundsConfig = [
-            { id: 'rain', name: 'Rainfall', icon: 'water_drop', type: 'pink' },
-            { id: 'forest', name: 'Forest Wind', icon: 'forest', type: 'brown' },
-            { id: 'white', name: 'White Noise', icon: 'blur_on', type: 'white' },
-            { id: 'ocean', name: 'Ocean Waves', icon: 'waves', type: 'sine-mod' }
+            {
+                id: 'rain',
+                name: 'Calming Rain',
+                icon: 'water_drop',
+                file: 'C:\\Users\\Aryan-Pandey\\Downloads\\liecio-calming-rain-257596.mp3'
+            },
+            {
+                id: 'thunder',
+                name: 'Rain + Thunder',
+                icon: 'thunderstorm',
+                file: 'C:\\Users\\Aryan-Pandey\\Downloads\\soundreality-rain-thunder-sfx-525011.mp3'
+            },
+            {
+                id: 'bells',
+                name: 'Tibetan Bells',
+                icon: 'self_improvement',
+                file: 'C:\\Users\\Aryan-Pandey\\Downloads\\meditativetiger-sleep-inducing-tibetan-bells-388638.mp3'
+            },
+            {
+                id: 'melody',
+                name: 'Soothing Melody',
+                icon: 'music_note',
+                file: 'C:\\Users\\Aryan-Pandey\\Downloads\\soundreality-soothing-melody-ambient-music-525012.mp3'
+            },
+            {
+                id: 'birds',
+                name: 'Birds in Forest',
+                icon: 'nature',
+                file: 'C:\\Users\\Aryan-Pandey\\Downloads\\soundreality-birds-forest-nature-445379.mp3'
+            },
+            {
+                id: 'waves',
+                name: 'Ocean Waves',
+                icon: 'water',
+                file: 'C:\\Users\\Aryan-Pandey\\Downloads\\soundreality-ocean-waves-ambient-sfx-525013.mp3'
+            },
+            {
+                id: 'sleep',
+                name: 'Sleep Sounds',
+                icon: 'bed',
+                file: 'C:\\Users\\Aryan-Pandey\\Downloads\\meditativetiger-sleep-inducing-sleep-sounds-388637.mp3'
+            },
+            {
+                id: 'peaceful',
+                name: 'Peaceful Ambience',
+                icon: 'spa',
+                file: 'C:\\Users\\Aryan-Pandey\\Downloads\\meditativetiger-peaceful-ambience-388636.mp3'
+            }
         ];
     }
 
-    initContext() {
-        if (!this.ctx) {
-            this.ctx = new (window.AudioContext || window.webkitAudioContext)();
-        }
+  playSound(id, file) {
+    if (this.players[id]) {
+        this.players[id].play();
+        return;
     }
 
-    createNoiseBuffer(type) {
-        const bufferSize = 2 * this.ctx.sampleRate;
-        const noiseBuffer = this.ctx.createBuffer(1, bufferSize, this.ctx.sampleRate);
-        const output = noiseBuffer.getChannelData(0);
-        
-        let lastOut = 0.0; // dynamic brown tracking variables
-        for (let i = 0; i < bufferSize; i++) {
-            const white = Math.random() * 2 - 1;
-            if (type === 'white') {
-                output[i] = white;
-            } else if (type === 'pink') {
-                // Approximate Pink Noise pink filtering matrix values
-                output[i] = (white + lastOut) / 2.0;
-                lastOut = white;
-            } else if (type === 'brown') {
-                output[i] = (lastOut + (0.02 * white)) / 1.02;
-                lastOut = output[i];
-                output[i] *= 3.5; // Compensate loss
-            }
-        }
-        return noiseBuffer;
+    const audio = new Audio(file);
+    audio.loop = true;
+    audio.volume = 0.3;
+
+    audio.play();
+
+    this.players[id] = audio;
+}
+
+stopSound(id) {
+    if (!this.players[id]) return;
+
+    this.players[id].pause();
+    this.players[id].currentTime = 0;
+
+    delete this.players[id];
+}
+
+setVolume(id, value) {
+    if (this.players[id]) {
+        this.players[id].volume = value;
     }
-
-    startSound(id, type) {
-        this.initContext();
-        if (this.nodes[id]) return;
-
-        const gainNode = this.ctx.createGain();
-        gainNode.gain.setValueAtTime(0.3, this.ctx.currentTime);
-
-        let source;
-        if (type === 'sine-mod') {
-            // Wave LFO Simulation
-            source = this.ctx.createOscillator();
-            source.type = 'sine';
-            source.frequency.setValueAtTime(80, this.ctx.currentTime);
-            
-            const lfo = this.ctx.createOscillator();
-            lfo.frequency.setValueAtTime(0.2, this.ctx.currentTime);
-            const lfoGain = this.ctx.createGain();
-            lfoGain.gain.setValueAtTime(0.15, this.ctx.currentTime);
-            
-            lfo.connect(lfoGain);
-            lfoGain.connect(gainNode.gain);
-            lfo.start();
-            source.start();
-        } else {
-            source = this.ctx.createBufferSource();
-            source.buffer = this.createNoiseBuffer(type);
-            source.loop = true;
-            source.start();
-        }
-
-        source.connect(gainNode);
-        gainNode.connect(this.ctx.destination);
-
-        this.nodes[id] = { source, gainNode };
-    }
-
-    stopSound(id) {
-        if (this.nodes[id]) {
-            try { this.nodes[id].source.stop(); } catch(e){}
-            this.nodes[id].source.disconnect();
-            this.nodes[id].gainNode.disconnect();
-            delete this.nodes[id];
-        }
-    }
-
-    setVolume(id, val) {
-        if (this.nodes[id]) {
-            this.nodes[id].gainNode.gain.setValueAtTime(val, this.ctx.currentTime);
-        }
-    }
+}
 }
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -124,7 +118,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 const iconSpan = btn.querySelector('.material-symbols-outlined');
 
                 if (iconSpan.innerText === 'play_arrow') {
-                    engine.startSound(id, type);
+                    engine.playSound(id, soundsConfig.find(s => s.id === id).file);
                     iconSpan.innerText = 'pause';
                     btn.classList.add('text-primary');
                     // Sync up existing slider adjustments
