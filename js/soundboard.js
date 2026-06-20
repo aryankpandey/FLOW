@@ -8,49 +8,49 @@ class SoundscapeEngine {
                 id: 'rain',
                 name: 'Calming Rain',
                 icon: 'water_drop',
-                file: 'C:\\Users\\Aryan-Pandey\\Downloads\\liecio-calming-rain-257596.mp3'
+                file: 'C:\Users\Aryan-Pandey\Documents\FlowDashboard\assets\audio\calming-rain.mp3'
             },
             {
                 id: 'thunder',
                 name: 'Rain + Thunder',
                 icon: 'thunderstorm',
-                file: 'C:\\Users\\Aryan-Pandey\\Downloads\\soundreality-rain-thunder-sfx-525011.mp3'
+                file: 'C:\Users\Aryan-Pandey\Documents\FlowDashboard\assets\audio\rain-thunder.mp3'
             },
             {
                 id: 'bells',
                 name: 'Tibetan Bells',
                 icon: 'self_improvement',
-                file: 'C:\\Users\\Aryan-Pandey\\Downloads\\meditativetiger-sleep-inducing-tibetan-bells-388638.mp3'
+                file: 'C:\Users\Aryan-Pandey\Documents\FlowDashboard\assets\audio\tibetan-bells.mp3'
             },
             {
                 id: 'melody',
                 name: 'Soothing Melody',
                 icon: 'music_note',
-                file: 'C:\\Users\\Aryan-Pandey\\Downloads\\soundreality-soothing-melody-ambient-music-525012.mp3'
+                file: 'C:\Users\Aryan-Pandey\Documents\FlowDashboard\assets\audio\soothing-melody.mp3'
             },
             {
                 id: 'birds',
                 name: 'Birds in Forest',
                 icon: 'nature',
-                file: 'C:\\Users\\Aryan-Pandey\\Downloads\\soundreality-birds-forest-nature-445379.mp3'
+                file: 'C:\Users\Aryan-Pandey\Documents\FlowDashboard\assets\audio\forest-birds.mp3'
             },
             {
                 id: 'waves',
                 name: 'Ocean Waves',
                 icon: 'water',
-                file: 'C:\\Users\\Aryan-Pandey\\Downloads\\soundreality-ocean-waves-ambient-sfx-525013.mp3'
+                file: 'C:\Users\Aryan-Pandey\Documents\FlowDashboard\assets\audio\ocean-waves.mp3'
             },
             {
                 id: 'sleep',
                 name: 'Sleep Sounds',
                 icon: 'bed',
-                file: 'C:\\Users\\Aryan-Pandey\\Downloads\\meditativetiger-sleep-inducing-sleep-sounds-388637.mp3'
+                file: 'C:\Users\Aryan-Pandey\Documents\FlowDashboard\assets\audio\sleep-sounds.mp3'
             },
             {
                 id: 'peaceful',
                 name: 'Peaceful Ambience',
                 icon: 'spa',
-                file: 'C:\\Users\\Aryan-Pandey\\Downloads\\meditativetiger-peaceful-ambience-388636.mp3'
+                file: 'C:\Users\Aryan-Pandey\Documents\FlowDashboard\assets\audio\peaceful-ambience.mp3'
             }
         ];
     }
