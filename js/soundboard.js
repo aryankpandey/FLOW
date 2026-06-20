@@ -8,49 +8,49 @@ class SoundscapeEngine {
                 id: 'rain',
                 name: 'Calming Rain',
                 icon: 'water_drop',
-                file: 'assets\audio\calming-rain.mp3'
+                file: 'assets/audio/calming-rain.mp3'
             },
             {
                 id: 'thunder',
                 name: 'Rain + Thunder',
                 icon: 'thunderstorm',
-                file: 'assets\audio\rain-thunder.mp3'
+                file: 'assets/audio/rain-thunder.mp3'
             },
             {
                 id: 'bells',
                 name: 'Tibetan Bells',
                 icon: 'self_improvement',
-                file: 'assets\audio\tibetan-bells.mp3'
+                file: 'assets/audio/tibetan-bells.mp3'
             },
             {
                 id: 'melody',
                 name: 'Soothing Melody',
                 icon: 'music_note',
-                file: 'assets\audio\soothing-melody.mp3'
+                file: 'assets/audio/soothing-melody.mp3'
             },
             {
                 id: 'birds',
                 name: 'Birds in Forest',
                 icon: 'nature',
-                file: 'assets\audio\forest-birds.mp3'
+                file: 'assets/audio/forest-birds.mp3'
             },
             {
                 id: 'waves',
                 name: 'Ocean Waves',
                 icon: 'water',
-                file: 'assets\audio\ocean-waves.mp3'
+                file: 'assets/audio/ocean-waves.mp3'
             },
             {
                 id: 'sleep',
                 name: 'Sleep Sounds',
                 icon: 'bed',
-                file: 'assets\audio\sleep-sounds.mp3'
+                file: 'assets/audio/sleep-sounds.mp3'
             },
             {
                 id: 'peaceful',
                 name: 'Peaceful Ambience',
                 icon: 'spa',
-                file: 'assets\audio\peaceful-ambience.mp3'
+                file: 'assets/audio/peaceful-ambience.mp3'
             }
         ];
     }
