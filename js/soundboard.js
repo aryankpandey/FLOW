@@ -8,49 +8,49 @@ class SoundscapeEngine {
                 id: 'rain',
                 name: 'Calming Rain',
                 icon: 'water_drop',
-                file: 'C:\Users\Aryan-Pandey\Documents\FlowDashboard\assets\audio\calming-rain.mp3'
+                file: 'assets\audio\calming-rain.mp3'
             },
             {
                 id: 'thunder',
                 name: 'Rain + Thunder',
                 icon: 'thunderstorm',
-                file: 'C:\Users\Aryan-Pandey\Documents\FlowDashboard\assets\audio\rain-thunder.mp3'
+                file: 'assets\audio\rain-thunder.mp3'
             },
             {
                 id: 'bells',
                 name: 'Tibetan Bells',
                 icon: 'self_improvement',
-                file: 'C:\Users\Aryan-Pandey\Documents\FlowDashboard\assets\audio\tibetan-bells.mp3'
+                file: 'assets\audio\tibetan-bells.mp3'
             },
             {
                 id: 'melody',
                 name: 'Soothing Melody',
                 icon: 'music_note',
-                file: 'C:\Users\Aryan-Pandey\Documents\FlowDashboard\assets\audio\soothing-melody.mp3'
+                file: 'assets\audio\soothing-melody.mp3'
             },
             {
                 id: 'birds',
                 name: 'Birds in Forest',
                 icon: 'nature',
-                file: 'C:\Users\Aryan-Pandey\Documents\FlowDashboard\assets\audio\forest-birds.mp3'
+                file: 'assets\audio\forest-birds.mp3'
             },
             {
                 id: 'waves',
                 name: 'Ocean Waves',
                 icon: 'water',
-                file: 'C:\Users\Aryan-Pandey\Documents\FlowDashboard\assets\audio\ocean-waves.mp3'
+                file: 'assets\audio\ocean-waves.mp3'
             },
             {
                 id: 'sleep',
                 name: 'Sleep Sounds',
                 icon: 'bed',
-                file: 'C:\Users\Aryan-Pandey\Documents\FlowDashboard\assets\audio\sleep-sounds.mp3'
+                file: 'assets\audio\sleep-sounds.mp3'
             },
             {
                 id: 'peaceful',
                 name: 'Peaceful Ambience',
                 icon: 'spa',
-                file: 'C:\Users\Aryan-Pandey\Documents\FlowDashboard\assets\audio\peaceful-ambience.mp3'
+                file: 'assets\audio\peaceful-ambience.mp3'
             }
         ];
     }
