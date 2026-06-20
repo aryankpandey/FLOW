@@ -1,26 +1,138 @@
 body {
     background-color: #111319;
-    background-image: linear-gradient(rgba(17, 19, 25, 0.75), rgba(17, 19, 25, 0.75)), url('https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=1000');
+
+    background-image:
+        linear-gradient(
+            rgba(17, 19, 25, 0.25),
+            rgba(17, 19, 25, 0.25)
+        ),
+        url('https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=1000');
+
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
+
     color: #e2e2eb;
-    transition: background-image 0.5s ease-in-out;
+
+    transition:
+        background-image 0.5s ease-in-out,
+        background-color 0.5s ease;
 }
 
-/* Perfecting Circular Timer Stroke Dash calculations */
+/* Timer Ring */
+
 .timer-circle {
-    stroke-dasharray: 880; /* Circumference of r=140 (2 * pi * 140) */
+    stroke-dasharray: 880;
     stroke-dashoffset: 0;
-    transition: stroke-dashoffset 0.25s linear, stroke 0.5s ease;
+
+    transition:
+        stroke-dashoffset 0.25s linear,
+        stroke 0.5s ease;
+
+    filter: drop-shadow(0 0 12px rgba(178, 197, 255, 0.35));
 }
+
+/* Active Glow */
 
 .glow-active {
-    box-shadow: 0 0 30px rgba(178, 197, 255, 0.1);
+    box-shadow:
+        0 0 30px rgba(178, 197, 255, 0.15),
+        0 0 80px rgba(178, 197, 255, 0.05);
+
     transition: box-shadow 0.5s ease;
 }
 
-/* Seamless Volume slider custom resets */
+/* Universal Glass Card */
+
+.glass-card {
+    background: rgba(255, 255, 255, 0.05);
+
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+
+    border: 1px solid rgba(255, 255, 255, 0.12);
+
+    box-shadow:
+        0 8px 32px rgba(0, 0, 0, 0.25),
+        inset 0 1px 0 rgba(255,255,255,0.08);
+
+    border-radius: 24px;
+}
+
+/* Sidebar Glass */
+
+.sidebar {
+    background: rgba(255,255,255,0.04);
+
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+
+    border-right: 1px solid rgba(255,255,255,0.08);
+
+    box-shadow:
+        0 0 30px rgba(0,0,0,0.15);
+}
+
+/* Timer Container */
+
+.timer-container {
+    background: rgba(255,255,255,0.04);
+
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+
+    border: 1px solid rgba(255,255,255,0.10);
+
+    border-radius: 28px;
+
+    box-shadow:
+        0 10px 40px rgba(0,0,0,0.25);
+}
+
+/* Buttons */
+
+button {
+    background: rgba(255,255,255,0.06);
+
+    backdrop-filter: blur(12px);
+
+    border: 1px solid rgba(255,255,255,0.10);
+
+    transition: all 0.25s ease;
+}
+
+button:hover {
+    transform: translateY(-2px);
+
+    background: rgba(255,255,255,0.10);
+
+    box-shadow:
+        0 8px 20px rgba(0,0,0,0.25);
+}
+
+/* Wallpaper Thumbnails */
+
+.wallpaper-btn {
+    overflow: hidden;
+
+    border-radius: 12px;
+
+    border: 1px solid rgba(255,255,255,0.10);
+
+    transition: all 0.25s ease;
+}
+
+.wallpaper-btn:hover {
+    transform: scale(1.05);
+
+    border-color: rgba(178,197,255,0.5);
+
+    box-shadow:
+        0 8px 20px rgba(0,0,0,0.25);
+}
+
+/* Volume Sliders */
+
 input[type="range"] {
     -webkit-appearance: none;
     appearance: none;
@@ -29,17 +141,23 @@ input[type="range"] {
 }
 
 input[type="range"]::-webkit-slider-runnable-track {
-    background: rgba(67, 70, 83, 0.5);
+    background: rgba(255,255,255,0.12);
     height: 4px;
-    border-radius: 2px;
+    border-radius: 100px;
 }
 
 input[type="range"]::-webkit-slider-thumb {
     -webkit-appearance: none;
-    appearance: none;
-    background-color: #b2c5ff;
-    height: 12px;
-    width: 12px;
+
+    background: #b2c5ff;
+
+    height: 14px;
+    width: 14px;
+
     border-radius: 50%;
-    margin-top: -4px;
+
+    margin-top: -5px;
+
+    box-shadow:
+        0 0 10px rgba(178,197,255,0.7);
 }

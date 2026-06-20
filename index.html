@@ -103,7 +103,7 @@
 </head>
 <body class="flex h-screen overflow-hidden text-on-background font-body-lg">
 
-    <aside class="hidden md:flex flex-col h-full py-stack-lg fixed left-0 top-0 w-[240px] bg-surface-container-low/60 backdrop-blur-xl border-r border-outline-variant/30 z-20">
+    <aside class="hidden md:flex flex-col h-full py-stack-lg fixed left-0 top-0 w-[240px] bg-white/5 backdrop-blur-xl border-r border-white/10 z-20">
         <div class="px-gutter mb-stack-lg">
             <h1 class="font-headline-md text-headline-md text-on-surface font-bold tracking-tight">FLOW</h1>
             <p class="font-body-sm text-body-sm text-on-surface-variant mt-stack-xs">Deep Work Mode</p>
@@ -158,7 +158,7 @@
     </aside>
 
     <main class="flex-1 flex flex-col md:ml-[240px] h-full overflow-y-auto relative mb-16 md:mb-0">
-        <header class="flex justify-between items-center w-full px-gutter py-4 bg-surface/60 backdrop-transparent-xl border-b border-outline-variant/30 top-0 sticky z-10">
+        <header class="flex justify-between items-center w-full px-gutter py-4 bg-white/5 backdrop-transparent-xl border-b border-outline-variant/30 top-0 sticky z-10">
             <div class="md:hidden">
                 <h1 class="font-headline-md text-headline-md font-bold tracking-tight text-on-surface">FLOW</h1>
             </div>
@@ -181,7 +181,7 @@
             <div id="content-modules" class="w-full flex-1 flex flex-col items-center justify-center my-stack-md">
                 
                 <div id="timer-section" class="view-module flex flex-col items-center w-full">
-                    <div class="relative w-[320px] h-[320px] flex items-center justify-center rounded-full glow-active bg-surface-container-high/60 backdrop-blur-xl border border-outline-variant/30 shadow-2xl">
+                    <div class="relative w-[320px] h-[320px] flex items-center justify-center rounded-full glow-active bg-white/5 backdrop-blur-2xl border border-outline-variant/30 shadow-2xl">
                         <svg class="absolute inset-0 w-full h-full -rotate-90 pointer-events-none" viewbox="0 0 320 320">
                             <circle class="text-surface-variant/50" cx="160" cy="160" fill="none" r="140" stroke="currentColor" stroke-width="4"></circle>
                             <circle id="progress-bar" class="text-primary timer-circle" cx="160" cy="160" fill="none" r="140" stroke="currentColor" stroke-linecap="round" stroke-width="4"></circle>
@@ -211,7 +211,7 @@
                     </div>
                 </div>
 
-                <div id="soundboard-section" class="view-module hidden w-full max-w-xl bg-surface-container/60 backdrop-blur-xl p-6 rounded-xl border border-outline-variant/30 shadow-xl">
+                <div id="soundboard-section" class="view-module hidden w-full max-w-xl bg-white/5 backdrop-blur-xl p-6 rounded-xl border border-outline-variant/30 shadow-xl">
                     <h2 class="text-headline-md font-bold mb-4 flex items-center gap-2 text-on-surface">
                         <span class="material-symbols-outlined text-primary">graphic_eq</span> Ambient Soundscapes
                     </h2>
@@ -219,7 +219,7 @@
                         </div>
                 </div>
 
-                <div id="analytics-section" class="view-module hidden w-full max-w-xl bg-surface-container/60 backdrop-blur-xl p-6 rounded-xl border border-outline-variant/30 shadow-xl">
+                <div id="analytics-section" class="view-module hidden w-full max-w-xl bg-white/5 backdrop-blur-xl p-6 rounded-xl border border-outline-variant/30 shadow-xl">
                     <h2 class="text-headline-md font-bold mb-6 flex items-center gap-2 text-on-surface">
                         <span class="material-symbols-outlined text-primary">equalizer</span> Session Analytics
                     </h2>
@@ -313,7 +313,7 @@
         wallpaperButtons.forEach(btn => {
             btn.addEventListener('click', () => {
                 const imageUrl = btn.getAttribute('data-bg');
-                document.body.style.backgroundImage = `linear-gradient(rgba(17, 19, 25, 0.75), rgba(17, 19, 25, 0.75)), url('${imageUrl}')`;
+                document.body.style.backgroundImage = `linear-gradient(rgba(17, 19, 25, 0.20), rgba(17, 19, 25, 0.20)), url('${imageUrl}')`;
                 wallpaperButtons.forEach(b => b.classList.remove('border-primary'));
                 btn.classList.add('border-primary');
                 localStorage.setItem('flow-wallpaper', imageUrl);
@@ -323,7 +323,7 @@
         // Init Saved Wallpaper configuration
         const savedBg = localStorage.getItem('flow-wallpaper');
         if (savedBg) {
-            document.body.style.backgroundImage = `linear-gradient(rgba(17, 19, 25, 0.75), rgba(17, 19, 25, 0.75)), url('${savedBg}')`;
+            document.body.style.backgroundImage = `linear-gradient(rgba(17, 19, 25, 0.20), rgba(17, 19, 25, 0.20)), url('${savedBg}')`;
             wallpaperButtons.forEach(b => {
                 if(b.getAttribute('data-bg') === savedBg) b.classList.add('border-primary');
                 else b.classList.remove('border-primary');
